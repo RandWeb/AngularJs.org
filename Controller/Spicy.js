@@ -1,13 +1,21 @@
 const app = angular.module("spicyApp1", []);
 
-app.controller("SpicyController", ["$scope", ($scope) => {
+app.controller('SpicyController', ['$scope', function($scope) {
+    $scope.customSpice = 'wasabi';
     $scope.spice = 'very';
 
-    $scope.chiliSpicy = () => {
-        $scope.spice = 'chili';
+    $scope.spicy = function(spice) {
+        $scope.spice = spice;
     };
-
-    $scope.jalapenoSpicy = () => {
-        $scope.spice = 'jalapeño';
-    };
-}])
+}]);
+// app.controller("SpicyController", ["$scope", ($scope) => {
+//     $scope.spice = 'very';
+//
+//     $scope.chiliSpicy = () => {
+//         $scope.spice = 'chili';
+//     };
+//
+//     $scope.jalapenoSpicy = () => {
+//         $scope.spice = 'jalapeño';
+//     };
+// }])
