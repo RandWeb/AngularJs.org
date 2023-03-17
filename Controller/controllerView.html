@@ -5,11 +5,15 @@
     <title>initial state of a $scope object</title>
 </head>
 <script src="../node_modules/angular/angular.js"></script>
-<script src="InitialState.js"></script>
+<script src="controller.js"></script>
 <body>
 
 <div ng-app="myApp" ng-controller="GreethingController">
     {{greeting}}
+    <br>
+    <div ng-init="number=0" ng-controller="DoubleController">
+       two times <input ng-model="number" type="number"> equals {{double(number)}}
+    </div>
 </div>
 </body>
 </html>
