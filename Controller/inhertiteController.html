@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="scopeInheritance" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Inheritance</title>
+</head>
+<script src="../node_modules/angular/angular.js"></script>
+<body>
+<style>
+    div.spicy div {
+        padding: 10px;
+        border: solid 2px blue;
+    }
+</style>
+<div class="spicy">
+    <div ng-controller="MainController">
+        <p>Good {{timeOfDay}}, {{name}}!</p>
+
+        <div ng-controller="ChildController">
+            <p>Good {{timeOfDay}}, {{name}}!</p>
+
+            <div ng-controller="GrandChildController">
+                <p>Good {{timeOfDay}}, {{name}}!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var myApp = angular.module('scopeInheritance', []);
+    myApp.controller('MainController', ['$scope', function ($scope) {
+        $scope.timeOfDay = 'morning';
+        $scope.name = 'Nikki';
+    }]);
+    myApp.controller('ChildController', ['$scope', function ($scope) {
+        $scope.name = 'Mattie';
+    }]);
+    myApp.controller('GrandChildController', ['$scope', function ($scope) {
+        $scope.timeOfDay = 'evening';
+        $scope.name = 'Gingerbread Baby';
+    }]);
+</script>
+</body>
+</html>
